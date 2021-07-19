@@ -1,0 +1,9 @@
+<br><br>
+<h1>{{ pagina }}</h1>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let curso of cursos" [routerLink]="['/cursos',curso.id]"><a>{{ curso.nome }}</a></li>
+
+    </ul>
+  </div>
+  <button class="btn btn-dark" (click)="nextPage()">Proxima pagina =></button>

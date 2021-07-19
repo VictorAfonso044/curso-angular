@@ -1,0 +1,19 @@
+<div class="form-group" [ngClass]="classeCss">
+    <label class="control-label" [attr.for]="id">{{ label }}</label>
+    <input
+      [type]="type"
+      class="form-control"
+      [id]="id"
+      [readonly]="!!isReadOnly"
+      [(ngModel)]="value"
+      [placeholder]="placeholder"
+      ngDefaultControl
+      (blur)="onChangeCb($event.target.value)"
+      (blur)="onTouchedCb($event.target.value)"
+      inputField
+    />
+    <app-error-msg
+      [formControl]="formControl"
+      [label]="label"
+    ></app-error-msg>
+</div>

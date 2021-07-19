@@ -1,0 +1,42 @@
+<section>
+  <!--article>
+    <h1>{{ getTitle() }} </h1>
+  <meu-primeiro-component></meu-primeiro-component>
+  <app-meu-primeiro2></app-meu-primeiro2>
+  <app-cursos></app-cursos>
+</article>
+<article>
+  <h3>Selecione uma classe:</h3>
+  <select #classe (change)="0">
+    <option value="alert-success">Sucesso</option>
+    <option value="alert-info">Info</option>
+    <option value="alert-warning">Alerta</option>
+    <option value="alert-danger">Erro</option>
+  </select>
+  <br><br>
+  <div class="alert" [style.display]="classe.value == 'alert-success' ? 'block' : 'none'" [class.alert-success]="classe.value == 'alert-success'"  role="alert">
+    A simple success alert—check it out!
+  </div>
+  <div class="alert " [style.display]="classe.value == 'alert-info' ? 'block' : 'none'" [class.alert-info]="classe.value == 'alert-info'"  role="alert">
+    A simple danger alert—check it out!
+  </div>
+  <div class="alert " [style.display]="classe.value == 'alert-warning' ? 'block' : 'none'" [class.alert-warning]="classe.value == 'alert-warning'"  role="alert">
+    A simple warning alert—check it out!
+  </div>
+  <div class="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'" [class.alert-danger]="classe.value == 'alert-danger'"  role="alert">
+    A simple info alert—check it out!
+  </div>
+</article>
+<article> 
+  <h3>Eventos</h3>
+  <button (click)="click()" class="btn btn-primary">Click</button>
+  <br><br>
+  <input type="text" (keyup)="onKeyUp($event)">
+  <h2>Valor do input {{ invalue }}</h2>
+</article-->
+<app-input-property [nome]="nomeCurso"></app-input-property>
+<contador valor='10' (mudouValor)="onMudouValor($event)"></contador>
+</section>
+<ciclo></ciclo>
+
+

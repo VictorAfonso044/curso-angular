@@ -1,0 +1,6 @@
+
+
+export interface IFormDeactivate{
+
+    podeDesativar();
+}

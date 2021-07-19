@@ -1,0 +1,70 @@
+<h2>Template Driven</h2>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-horizontal">
+    <div class="form-group" [ngClass]="aplicaCssError(nome)">
+    <div class="col-sm-12">
+      <label class="control-label" for="nome">Nome: </label>
+      <input type="text" name="nome" class="form-control" id="Nome" placeholder="Nome" 
+      [(ngModel)]="usuario.nome" required #nome="ngModel">
+      <app-campo-control-erro [error]="verificarForm(nome)" msgerror="Nome é Obrigatorio"></app-campo-control-erro>
+    </div>
+  </div>  
+    <div class="form-group " [ngClass]="aplicaCssError('#email')">
+        <div class="col-sm-12">
+        <label for="email">Email: </label>
+         <input type="email" name="email" class="form-control" id="Email" placeholder="Example@email.com" 
+        [(ngModel)]="usuario.email" email required #email="ngModel">
+        <app-campo-control-erro [error]="verificarForm(email)" msgerror="Email é Obrigatorio"></app-campo-control-erro>
+      </div>
+    </div>
+    <div ngModelGroup="endereco">
+    <div class="form-group" >
+      <div class="col-md-3" [ngClass]="aplicaCssError(cep)">
+      <label class="control-label"  for="cep">CEP: </label>
+      <input type="text" name="cep" class="form-control" id="cep" placeholder="000-000" ngModel
+      #cep="ngModel" required (blur)="consultaCep($event.target.value, f)">
+      <app-campo-control-erro [error]="verificarForm(cep)" msgerror="CEP é Obrigatorio"></app-campo-control-erro>
+    </div>
+    <div class="col-md-3" [ngClass]="aplicaCssError(numero)">
+      <label class="control-label"  for="numero">Número: </label>
+      <input type="text" name="numero" class="form-control" id="numero" placeholder="" ngModel
+      #numero="ngModel" required>
+      <app-campo-control-erro [error]="verificarForm(numero)" msgerror="Número é Obrigatorio"></app-campo-control-erro>
+
+    </div>
+    <div class="col-md-6" >
+      <label class="control-label"  for="complemento">Complemento: </label>
+      <input type="text" name="complemento" class="form-control" id="complemento" placeholder="Opcional" ngModel
+      #complemento="ngModel" >
+    </div>
+    </div>
+    <div class="form-group " >
+        <div class="col-sm-12" [ngClass]="aplicaCssError(rua)">
+          <label class="control-label"  for="rua">rua: </label>
+          <input type="text" name="rua" class="form-control" id="rua" placeholder="" ngModel
+          #rua="ngModel" required readonly>
+      </div>
+    </div>
+    <div class="form-group" >
+      <div class="col-sm-5" [ngClass]="aplicaCssError(bairro)">
+      <label class="control-label"  for="bairro">Bairro: </label>
+      <input type="text" name="bairro" class="form-control" id="bairro" placeholder="" ngModel
+      #bairro="ngModel" required readonly>
+    </div> 
+    <div class="col-sm-3" [ngClass]="aplicaCssError(cidade)">
+      <label class="control-label"  for="cidade">Cidade: </label>
+      <input type="text" name="cidade" class="form-control" id="cidade" placeholder="" ngModel
+      #cidade="ngModel" required readonly>
+    </div>
+      <div class="col-sm-4" [ngClass]="aplicaCssError(estado)">
+      <label class="control-label"  for="estado">Estado: </label>
+      <input type="text" name="estado" class="form-control" id="estado" placeholder="" ngModel
+      #estado="ngModel" required readonly>
+    </div>
+  </div>
+</div>
+      <br>
+      <button [disabled]="!f.valid" type="submit" class="bnt btn-success">Enviar</button>
+</form>
+<br><br>
+<app-form-debug [form]="f"></app-form-debug>

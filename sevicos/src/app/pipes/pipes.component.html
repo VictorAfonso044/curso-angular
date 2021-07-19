@@ -1,0 +1,15 @@
+<h3>Titulo: {{ livro.titulo | uppercase | camelCase }}</h3>
+
+<p>Estrelas: {{ livro.rating | number:'2.2-2' }}</p>
+<p>Paginas: {{ livro.numeroPaginas | number}}</p>
+<p>Preço: {{ livro.preco | currency:'BRL' }}</p>
+<p>Data Lançamento: {{ livro.dataLancamento | date:'dd-MM-yyyy' }}</p>
+<p>URL: {{ livro.urls  }} </p> 
+
+<p>Livro {{ livro | json}}</p>
+
+<ul>
+    <li *ngFor="let l of livros | filtroImpuro ">{{ l }}</li>
+</ul>
+
+<p>{{ valorAsync | async }}</p>
